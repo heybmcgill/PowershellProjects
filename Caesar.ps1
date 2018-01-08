@@ -11,12 +11,15 @@
 # linkedin : linkedin.com/heybmcgill                           #
 # ______________________________________________________________
 
+# Break out of process if there are problems with entered integer or secret message 
+$ErrorActionPreference = "Stop"
 
 #Get the key
 [int]$cipherkey = Read-Host "Enter cipher key as integer value"
 
 #Get the message to encode
-[char[]]$message = Read-Host "Enter secret message"
+[char[]]$message  = Read-Host "Enter secret message"
+
 
 #Convert the char array into an integer array of ascii values
 $asciiorig = ($message | %{[int][char]$_})
